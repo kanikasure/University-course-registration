@@ -66,7 +66,10 @@ public abstract class Course implements Comparable<Course> {
      * TEAM TODO: Each subclass should call super.courseDetails() first,
      * then add its own extra lines (lab fee, calculator required, etc.).
      */
-    public abstract String courseDetails();
+    //instead change this to toString
+    public String toString(){
+        return "Course title: " + courseTitle + "\nProfessor: " + professor + "\nSection: " + section;
+    }
 
     /**
      * Calculate the total tuition cost for this course.
@@ -88,12 +91,11 @@ public abstract class Course implements Comparable<Course> {
      *   2. Wrong type or null? Immediately false.
      *   3. Cast and compare the CRN strings.
      */
+
+    //made changes here- removed unecessary check conditions
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || !(obj instanceof Course)) return false;
-        Course other = (Course) obj;
-        return this.crn.equals(other.crn);
+        return this.crn.equals(((Course)obj).crn);
     }
 
     /**
@@ -104,9 +106,13 @@ public abstract class Course implements Comparable<Course> {
      * TEAM TODO: Integer.compare does the math for you — returns negative,
      * zero, or positive, which is exactly what compareTo must return.
      */
+
+    //changed the body of the method to include conditional statements
     @Override
     public int compareTo(Course other) {
-        return Integer.compare(this.creditHours, other.creditHours);
+        if (this.creditHours== other.getCreditHours()) return 0;
+        else if (this.creditHours > other.getCreditHours()) return 1;
+        else return -1;
     }
 
     /**
@@ -157,13 +163,14 @@ public abstract class Course implements Comparable<Course> {
      * Helper to format days array as a readable string, e.g. "Mon Wed Fri".
      * TEAM TODO: Use this inside courseDetails() so you don't repeat the loop.
      */
+    //made changes to change string buider to string
     protected String formatDays() {
-        StringBuilder sb = new StringBuilder();
+        String str = "";
         for (int i = 0; i < days.length; i++) {
-            sb.append(days[i]);
-            if (i < days.length - 1) sb.append(" ");
+            str += days[i];
+            if (i < days.length - 1) str += " ";
         }
-        return sb.toString();
+        return str;
     }
 
     /**
