@@ -178,7 +178,7 @@ public abstract class Course implements Comparable<Course> {
      * TEAM TODO: Call super.baseCourseDetails() inside each subclass
      * courseDetails() so you don't duplicate this block everywhere.
      */
-    protected String baseCourseDetails() {
+    protected String courseDetails() {
         return "CRN: " + crn + "\n"
              + "Title: " + courseTitle + "\n"
              + "Professor: " + professor + "\n"
