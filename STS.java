@@ -39,7 +39,7 @@ public abstract class STS extends HistHumGER {
     @Override
     public String courseDetails() {
         // TEAM TODO: build and return the full details string
-        return ""; // placeholder — replace this
+        return super.courseDetails() + " (Focus: " + focusArea + ", Interdisciplinary: " + interdisciplinary + ")"; // placeholder — replace this
     }
 
     // Getters

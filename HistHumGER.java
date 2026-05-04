@@ -44,7 +44,11 @@ public abstract class HistHumGER extends Course {
     @Override
     public double calculateTuition() {
         // TEAM TODO: implement with optional GER discount
-        return 0.0; // placeholder — replace this
+        double baseTuition = this.getCreditHours() * this.getCreditFee();
+        if (isGER) {
+            baseTuition -= 50.0; // Apply GER discount
+        }
+        return baseTuition;
     }
 
     /**
@@ -55,7 +59,11 @@ public abstract class HistHumGER extends Course {
     @Override
     public String courseDetails() {
         // TEAM TODO: build and return the full details string
-        return ""; // placeholder — replace this
+        String details = super.courseDetails(); // call the base version to get the common block
+        details += "\nGER: " + isGER;
+        details += "\nGER Category: " + gerCategory;
+        details += "\nResearch Paper Required: " + hasResearchPaper;
+        return details; // placeholder — replace this
     }
 
     // -------------------------------------------------------------------------

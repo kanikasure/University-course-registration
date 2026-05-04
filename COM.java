@@ -44,7 +44,10 @@ public abstract class COM extends HistHumGER {
     @Override
     public String courseDetails() {
         // TEAM TODO: build and return the full details string
-        return ""; // placeholder — replace this
+        String details = super.courseDetails(); // call the base version to get the common block
+        details += "\nCommunication Mode: " + communicationMode;
+        details += "\nPresentations Required: " + hasPresentations;
+        return details; // placeholder — replace this
     }
 
     // Getters

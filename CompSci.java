@@ -4,7 +4,7 @@
  * Sits between Course (root) and concrete CS course classes.
  *
  * TEAM TODO: Notice this class is abstract — you cannot instantiate it
- * directly. It exists to hold fields and logic shared by CS100, CS113, CS114.
+ * directly. It exists to hold fields and logic shared by CS100, CS113, CS114 and CS241.
  */
 public abstract class CompSci extends Course {
 
@@ -20,7 +20,7 @@ public abstract class CompSci extends Course {
     /**
      * TEAM TODO: This constructor calls super(...) to set all the Course fields,
      * then sets the three CS-specific fields.
-     * Your concrete classes (CS100, CS113, CS114) will call super(...) here.
+     * Your concrete classes (CS100, CS113, CS114, CS241) will call super(...) here.
      */
     public CompSci(String crn, String courseTitle, String professor, String section,
                    int creditHours, double creditFee, boolean isRequired, boolean isElective,
@@ -50,9 +50,12 @@ public abstract class CompSci extends Course {
      */
     @Override
     public double calculateTuition() {
-        double base = getCreditHours() * getCreditFee();
+        double base = this.getCreditHours() * this.getCreditFee();
         // TEAM TODO: add labFee if hasLabSection, then return the total
-        return 0.0; // placeholder — replace this
+        if (this.hasLabSection()) {
+            base += this.getLabFee();
+        }
+        return base;
     }
 
     /**
@@ -64,7 +67,16 @@ public abstract class CompSci extends Course {
     @Override
     public String courseDetails() {
         // TEAM TODO: build and return the full details string
-        return ""; // placeholder — replace this
+        String details = super.courseDetails(); // call the base version to get the common block
+
+        // Append CS-specific information
+        details += "\nProgramming Language: " + this.getProgrammingLanguage();
+        details += "\nLab Section: " + (this.hasLabSection() ? "Yes" : "No");
+        if (this.hasLabSection()) {
+            details += "\nLab Fee: $" + this.getLabFee();
+        }
+
+        return details;
     }
 
     // -------------------------------------------------------------------------
