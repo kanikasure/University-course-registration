@@ -22,13 +22,13 @@ public abstract class CompSci extends Course {
      * then sets the three CS-specific fields.
      * Your concrete classes (CS100, CS113, CS114, CS241) will call super(...) here.
      */
-    public CompSci(String crn, String courseTitle, String professor, String section,
+    public CompSci(String crn, String courseTitle, String courseCode, String professor, String section,
                    int creditHours, double creditFee, boolean isRequired, boolean isElective,
                    String location, String[] days, String time,
                    String[] prerequisites, int capacity,
                    String programmingLanguage, boolean hasLabSection, double labFee) {
 
-        super(crn, courseTitle, professor, section, creditHours, creditFee,
+        super(crn, courseTitle, courseCode, professor, section, creditHours, creditFee,
               isRequired, isElective, location, days, time, prerequisites, capacity);
 
         this.programmingLanguage = programmingLanguage;

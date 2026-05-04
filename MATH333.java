@@ -20,6 +20,7 @@ class MATH333 extends MathCourse {
         super(
             crn,
             "Probability and Statistics",
+            "MATH333",
             professor,
             section,
             3,

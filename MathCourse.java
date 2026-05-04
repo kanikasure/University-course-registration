@@ -19,13 +19,13 @@ public abstract class MathCourse extends Course {
     // Constructor
     // -------------------------------------------------------------------------
 
-    public MathCourse(String crn, String courseTitle, String professor, String section,
+    public MathCourse(String crn, String courseTitle, String courseCode, String professor, String section,
                       int creditHours, double creditFee, boolean isRequired, boolean isElective,
                       String location, String[] days, String time,
                       String[] prerequisites, int capacity,
                       String mathSubfield, boolean requiresCalculator, int recitationSessions) {
 
-        super(crn, courseTitle, professor, section, creditHours, creditFee,
+        super(crn, courseTitle, courseCode, professor, section, creditHours, creditFee,
               isRequired, isElective, location, days, time, prerequisites, capacity);
 
         this.mathSubfield       = mathSubfield;

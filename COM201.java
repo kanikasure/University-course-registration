@@ -15,6 +15,7 @@ class COM201 extends COM {
         super(
             crn,
             "Introduction to Communication and Media",
+            "COM201",
             professor,
             section,
             3,

@@ -13,6 +13,7 @@ public class MATH111 extends MathCourse {
         super(
             crn,
             "Calculus I",
+            "MATH111",
             professor,
             section,
             4,                         // 4-credit course

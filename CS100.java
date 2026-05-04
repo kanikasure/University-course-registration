@@ -20,6 +20,7 @@ public class CS100 extends CompSci {
         super(
             crn,                          // crn
             "Roadmap to Computing",    // courseTitle
+            "CS100",                    // courseCode
             professor,
             section,
             3,                                // creditHours

@@ -16,6 +16,7 @@ class COM230 extends COM {
         super(
             crn,
             "Introduction to Film",
+            "COM230",
             professor,
             section,
             3,

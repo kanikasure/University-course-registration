@@ -15,6 +15,7 @@ class CS241 extends CompSci {
         super(
             "CS241",
             "Foundations of Computer Science I",
+            "CS241",
             professor,
             section,
             3,

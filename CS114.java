@@ -15,6 +15,7 @@ class CS114 extends CompSci {
         super(
             crn,
             "Introduction to Computer Science II",
+            "CS114",
             professor,
             section,
             3,

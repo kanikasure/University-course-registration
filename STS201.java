@@ -15,6 +15,7 @@ class STS201 extends STS {
         super(
             crn,
             "Understanding Technological Society",
+            "STS201",
             professor,
             section,
             3,

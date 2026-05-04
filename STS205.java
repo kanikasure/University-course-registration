@@ -15,6 +15,7 @@ class STS205 extends STS {
         super(
             crn,
             "Intro to Research Methods",
+            "STS205",
             professor,
             section,
             3,

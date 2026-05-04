@@ -13,6 +13,7 @@ class MATH105 extends MathCourse {
         super(
             crn,
             "Elementary Probability and Statistics",
+            "MATH105",
             professor,
             section,
             3,

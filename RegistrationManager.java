@@ -14,7 +14,7 @@ public class RegistrationManager {
 
     private Course[] courses;      // Polymorphic array — holds any Course subtype
     private int      count;        // How many courses are currently stored
-    private static final int MAX_COURSES = 20;
+    private static final int MAX_COURSES = 20; // Max capacity of the courses array- slightly higher than the number of concrete classes to allow for duplicates in testing
 
     // -------------------------------------------------------------------------
     // Constructor
@@ -77,11 +77,25 @@ public class RegistrationManager {
      *   Inner loop: compares adjacent elements, swaps if out of order.
      * compareTo() returns negative if courses[j] should come first.
      */
+
+    //changed the sorting technique to selection sort
     public void sortByCreditHours() {
         for (int i = 0; i < count - 1; i++) {
-            for (int j = 0; j < count - 1 - i; j++) {
-                if (courses[j].compareTo(courses[j + 1]) > 0) {
-                    // Swap
+            int minIndex = i;
+            for (int j = i + 1; j < count; j++) {
+                if (courses[j].compareTo(courses[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+            // Swap
+            Course temp = courses[i];
+            courses[i] = courses[minIndex];
+            courses[minIndex] = temp;
+        }
+        System.out.println("Courses sorted by credit hours.");
+    }
+
+    /**
                     Course temp    = courses[j];
                     courses[j]     = courses[j + 1];
                     courses[j + 1] = temp;

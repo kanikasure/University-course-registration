@@ -13,6 +13,7 @@ class MATH112 extends MathCourse {
         super(
             crn,
             "Calculus II",
+            "MATH112",
             professor,
             section,
             4,
