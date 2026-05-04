@@ -15,14 +15,14 @@ public abstract class COM extends HistHumGER {
     // Constructor
     // -------------------------------------------------------------------------
 
-    public COM(String crn, String courseTitle, String professor, String section,
+    public COM(String crn, String courseTitle, String courseCode, String professor, String section,
                int creditHours, double creditFee, boolean isRequired, boolean isElective,
                String location, String[] days, String time,
                String[] prerequisites, int capacity,
                boolean isGER, String gerCategory, boolean hasResearchPaper,
                String communicationMode, boolean hasPresentations) {
 
-        super(crn, courseTitle, professor, section, creditHours, creditFee,
+        super(crn, courseTitle, courseCode, professor, section, creditHours, creditFee,
               isRequired, isElective, location, days, time, prerequisites, capacity,
               isGER, gerCategory, hasResearchPaper);
 
@@ -44,7 +44,10 @@ public abstract class COM extends HistHumGER {
     @Override
     public String courseDetails() {
         // TEAM TODO: build and return the full details string
-        return ""; // placeholder — replace this
+        String details = super.courseDetails(); // call the base version to get the common block
+        details += "\nCommunication Mode: " + communicationMode;
+        details += "\nPresentations Required: " + hasPresentations;
+        return details; // placeholder — replace this
     }
 
     // Getters

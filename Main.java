@@ -24,41 +24,41 @@ public class Main {
         //            Use at least one of every concrete class.
         // ---------------------------------------------------------------------
         try {
-            manager.addCourse(new CS100("Prof. Smith",  "001", "GITC 1400",
+            manager.addCourse(new CS100("CS100-001", "Prof. Smith", "001", "GITC 1400",
                                         new String[]{"Mon","Wed"}, "10:00-11:15", 30));
 
-            manager.addCourse(new CS113("Prof. Jones",  "001", "GITC 3900",
+            manager.addCourse(new CS113("CS113-001", "Prof. Jones",  "001", "GITC 3900",
                                         new String[]{"Tue","Thu"}, "11:30-12:45", 25));
 
-            manager.addCourse(new CS114("Prof. Lee",    "001", "GITC 3700",
+            manager.addCourse(new CS114("CS114-001", "Prof. Lee",    "001", "GITC 3700",
                                         new String[]{"Mon","Wed","Fri"}, "09:00-09:50", 20));
 
-            manager.addCourse(new MATH111("Prof. Chen", "001", "Cullimore 110",
+            manager.addCourse(new MATH111("MATH111-001", "Prof. Chen", "001", "Cullimore 110",
                                           new String[]{"Mon","Tue","Wed","Thu"}, "08:00-08:50", 35));
 
-            manager.addCourse(new MATH112("Prof. Kim",  "001", "Cullimore 110",
+            manager.addCourse(new MATH112("MATH112-001", "Prof. Kim",  "001", "Cullimore 110",
                                           new String[]{"Mon","Wed","Fri"}, "10:00-10:50", 30));
 
-            manager.addCourse(new MATH105("Prof. Patel","001", "Cullimore 114",
+            manager.addCourse(new MATH105("MATH105-001", "Prof. Patel","001", "Cullimore 114",
                                           new String[]{"Tue","Thu"}, "14:00-15:15", 40));
 
-            manager.addCourse(new MATH353("Prof. Wang", "001", "Cullimore 220",
+            manager.addCourse(new MATH333("MATH333-001", "Prof. Wang", "001", "Cullimore 220",
                                           new String[]{"Mon","Wed"}, "13:00-14:15", 20));
 
-            manager.addCourse(new COM200("Prof. Davis", "001", "Bradley 106",
+            manager.addCourse(new COM200("COM200-001", "Prof. Davis", "001", "Bradley 106",
                                          new String[]{"Mon","Wed"}, "12:30-13:45", 28));
 
-            manager.addCourse(new COM201("Prof. Brown", "001", "Bradley 108",
+            manager.addCourse(new COM201("COM201-001", "Prof. Brown", "001", "Bradley 108",
                                          new String[]{"Tue","Thu"}, "09:30-10:45", 25));
 
-            manager.addCourse(new COM230("Prof. Garcia","001", "Bradley 110",
+            manager.addCourse(new COM230("COM230-001", "Prof. Garcia","001", "Bradley 110",
                                          new String[]{"Mon","Wed","Fri"}, "11:00-11:50", 22));
 
-            manager.addCourse(new STS201("Prof. Wilson","001", "Kupfrian 107",
+            manager.addCourse(new STS201("STS201-001", "Prof. Wilson","001", "Kupfrian 107",
                                          new String[]{"Tue","Thu"}, "12:30-13:45", 30));
 
-            manager.addCourse(new STS205("Prof. Moore", "001", "Kupfrian 107",
-                                         new String[]{"Mon","Wed"}, "15:30-16:45", 25));
+            manager.addCourse(new STS205("STS205-001", "Prof. Moore", "001", "Kupfrian 107",
+                                         new String[]{"Mon","Wed"}, "15:30-16:45", 25, "Microfabrication Innovation Center"));
 
         } catch (EnrollmentException e) {
             System.out.println("Setup error: " + e.getMessage());
@@ -90,7 +90,7 @@ public class Main {
                     case 3:
                         // Recursive CRN search
                         System.out.print("Enter CRN to search: ");
-                        String crn = scanner.nextLine().trim().toUpperCase();
+                        String crn = scanner.nextLine();
                         Course found = manager.searchByCRN(crn, 0);
                         if (found != null) {
                             System.out.println("Found:");
@@ -103,7 +103,7 @@ public class Main {
                     case 4:
                         // Enroll — triggers EnrollmentException if full
                         System.out.print("Enter CRN to enroll in: ");
-                        String enrollCRN = scanner.nextLine().trim().toUpperCase();
+                        String enrollCRN = scanner.nextLine();
                         Course target = manager.searchByCRN(enrollCRN, 0);
                         if (target == null) {
                             System.out.println("Course not found.");
@@ -129,9 +129,9 @@ public class Main {
                     case 6:
                         // Test equals() — rubric check
                         System.out.print("Enter first CRN: ");
-                        String crn1 = scanner.nextLine().trim().toUpperCase();
+                        String crn1 = scanner.nextLine();
                         System.out.print("Enter second CRN: ");
-                        String crn2 = scanner.nextLine().trim().toUpperCase();
+                        String crn2 = scanner.nextLine();
                         Course c1 = manager.searchByCRN(crn1, 0);
                         Course c2 = manager.searchByCRN(crn2, 0);
                         if (c1 == null || c2 == null) {

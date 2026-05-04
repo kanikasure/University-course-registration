@@ -12,14 +12,14 @@ public abstract class STS extends HistHumGER {
     // Constructor
     // -------------------------------------------------------------------------
 
-    public STS(String crn, String courseTitle, String professor, String section,
+    public STS(String crn, String courseTitle, String courseCode, String professor, String section,
                int creditHours, double creditFee, boolean isRequired, boolean isElective,
                String location, String[] days, String time,
                String[] prerequisites, int capacity,
                boolean isGER, String gerCategory, boolean hasResearchPaper,
                String focusArea, boolean interdisciplinary) {
 
-        super(crn, courseTitle, professor, section, creditHours, creditFee,
+        super(crn, courseTitle, courseCode, professor, section, creditHours, creditFee,
               isRequired, isElective, location, days, time, prerequisites, capacity,
               isGER, gerCategory, hasResearchPaper);
 
@@ -39,7 +39,7 @@ public abstract class STS extends HistHumGER {
     @Override
     public String courseDetails() {
         // TEAM TODO: build and return the full details string
-        return ""; // placeholder — replace this
+        return super.courseDetails() + " (Focus: " + focusArea + ", Interdisciplinary: " + interdisciplinary + ")"; // placeholder — replace this
     }
 
     // Getters

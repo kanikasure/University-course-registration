@@ -14,6 +14,7 @@ public abstract class Course implements Comparable<Course> {
 
     private String  crn;           // Unique course ID — used in equals()
     private String  courseTitle;   // e.g. "Introduction to Programming"
+    private String courseCode;    // e.g. "CS101"
     private String  professor;     // Instructor name
     private String  section;       // e.g. "001"
     private int     creditHours;   // Used in compareTo()
@@ -36,13 +37,14 @@ public abstract class Course implements Comparable<Course> {
      * When you write subclass constructors, call super(...) with these same
      * arguments first, then set the subclass-specific fields beneath it.
      */
-    public Course(String crn, String courseTitle, String professor, String section,
+    public Course(String crn, String courseTitle, String courseCode, String professor, String section,
                   int creditHours, double creditFee, boolean isRequired, boolean isElective,
                   String location, String[] days, String time,
                   String[] prerequisites, int capacity) {
 
         this.crn          = crn;
         this.courseTitle  = courseTitle;
+        this.courseCode   = courseCode;
         this.professor    = professor;
         this.section      = section;
         this.creditHours  = creditHours;
@@ -66,7 +68,10 @@ public abstract class Course implements Comparable<Course> {
      * TEAM TODO: Each subclass should call super.courseDetails() first,
      * then add its own extra lines (lab fee, calculator required, etc.).
      */
-    public abstract String courseDetails();
+    //instead change this to toString
+    public String toString(){
+        return "Course title: " + courseTitle + "\nCourse code: " + courseCode + "\nProfessor: " + professor + "\nSection: " + section;
+    }
 
     /**
      * Calculate the total tuition cost for this course.
@@ -88,12 +93,11 @@ public abstract class Course implements Comparable<Course> {
      *   2. Wrong type or null? Immediately false.
      *   3. Cast and compare the CRN strings.
      */
+
+    //made changes here- removed unecessary check conditions
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || !(obj instanceof Course)) return false;
-        Course other = (Course) obj;
-        return this.crn.equals(other.crn);
+        return this.crn.equals(((Course)obj).crn);
     }
 
     /**
@@ -104,9 +108,13 @@ public abstract class Course implements Comparable<Course> {
      * TEAM TODO: Integer.compare does the math for you — returns negative,
      * zero, or positive, which is exactly what compareTo must return.
      */
+
+    //changed the body of the method to include conditional statements
     @Override
     public int compareTo(Course other) {
-        return Integer.compare(this.creditHours, other.creditHours);
+        if (this.creditHours== other.getCreditHours()) return 0;
+        else if (this.creditHours > other.getCreditHours()) return 1;
+        else return -1;
     }
 
     /**
@@ -125,7 +133,7 @@ public abstract class Course implements Comparable<Course> {
      */
     public void enroll() throws EnrollmentException {
         if (!isAvailable()) {
-            throw new EnrollmentException("Cannot enroll in " + courseTitle
+            throw new EnrollmentException("Cannot enroll in " + courseCode
                 + " (CRN: " + crn + "): section is full.");
         }
         enrolled++;
@@ -157,13 +165,14 @@ public abstract class Course implements Comparable<Course> {
      * Helper to format days array as a readable string, e.g. "Mon Wed Fri".
      * TEAM TODO: Use this inside courseDetails() so you don't repeat the loop.
      */
+    //made changes to change string buider to string
     protected String formatDays() {
-        StringBuilder sb = new StringBuilder();
+        String str = "";
         for (int i = 0; i < days.length; i++) {
-            sb.append(days[i]);
-            if (i < days.length - 1) sb.append(" ");
+            str += days[i];
+            if (i < days.length - 1) str += " ";
         }
-        return sb.toString();
+        return str;
     }
 
     /**
@@ -171,7 +180,7 @@ public abstract class Course implements Comparable<Course> {
      * TEAM TODO: Call super.baseCourseDetails() inside each subclass
      * courseDetails() so you don't duplicate this block everywhere.
      */
-    protected String baseCourseDetails() {
+    protected String courseDetails() {
         return "CRN: " + crn + "\n"
              + "Title: " + courseTitle + "\n"
              + "Professor: " + professor + "\n"
@@ -190,6 +199,7 @@ public abstract class Course implements Comparable<Course> {
 
     public String  getCRN()          { return crn; }
     public String  getCourseTitle()  { return courseTitle; }
+    public String  getCourseCode()   { return courseCode; }
     public String  getProfessor()    { return professor; }
     public String  getSection()      { return section; }
     public int     getCreditHours()  { return creditHours; }
