@@ -9,7 +9,7 @@ public class COM200 extends COM {
 
     private boolean writingIntensive;
 
-    public COM200(String crn, String courseTitle, String professor, String section, String location,
+    public COM200(String crn, String professor, String section, String location,
                   String[] days, String time, int capacity) {
 
         super(
