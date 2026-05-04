@@ -110,15 +110,12 @@ public class RegistrationManager {
      * Required by the rubric.
      *
      * TEAM TODO: Trace this for your report.
-     *   Call it as: searchByCRN("CS100", 0)
+     *   Call it as: searchByCRN("91863", 0)
      *
      *   Base case 1 — index past end of array: not found, return null.
      *   Base case 2 — CRN matches: return the course.
      *   Recursive case — advance index by 1.
      *
-     * @param crn   the CRN to search for
-     * @param index current position in the array (start with 0)
-     * @return the matching Course, or null if not found
      */
     public Course searchByCRN(String crn, int index) {
         // Base case 1 — reached the end without finding it
@@ -142,9 +139,7 @@ public class RegistrationManager {
         boolean found = false;
         for (int i = 0; i < count; i++) {
             if (courses[i].isAvailable()) {
-                System.out.println(courses[i].getCRN() + " — "
-                    + courses[i].getCourseTitle()
-                    + " (" + courses[i].getEnrolled() + "/"
+                System.out.println(courses[i]+ " (" + courses[i].getEnrolled() + "/"
                     + courses[i].getCapacity() + " seats)");
                 found = true;
             }
