@@ -1,3 +1,4 @@
+package core;
 /**
  * EnrollmentException.java
  * Custom exception for the Course Registration System.

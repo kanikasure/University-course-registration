@@ -1,3 +1,4 @@
+package humanities;
 /**
  * COM.java
  * Abstract sub-intermediate for Communication courses.

@@ -1,3 +1,4 @@
+package math;
 // =============================================================================
 // MATH333.java — Concrete leaf class (upper division)
 // =============================================================================
@@ -9,7 +10,7 @@
  * TEAM TODO: This is the one Math leaf that overrides calculateTuition() a
  * second time. Show this in your demo as an example of layered polymorphism.
  */
-class MATH333 extends MathCourse {
+public class MATH333 extends MathCourse {
 
     private boolean isUpperDivision = true;
     private double  upperDivisionFee = 120.00;

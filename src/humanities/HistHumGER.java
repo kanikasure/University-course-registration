@@ -1,3 +1,5 @@
+package humanities;
+import core.Course;
 /**
  * HistHumGER.java
  * Abstract intermediate for History, Humanities, and General Education

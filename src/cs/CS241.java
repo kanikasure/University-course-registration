@@ -1,22 +1,22 @@
+package cs;
 // =============================================================================
-// CS113.java — Concrete leaf class
+// CS241.java — Concrete leaf class
 // =============================================================================
-// 
 
 /**
- * CS113.java — Introduction to Computer Science I. Prerequisite: CS100.
+ * CS241.java — Foundations of Computer Science I. Prerequisite: CS114 and MATH112.
  */
-class CS113 extends CompSci {
+public class CS241 extends CompSci {
 
     private String[] topicsCovered;
 
-    public CS113(String crn, String professor, String section, String location,
+    public CS241(String professor, String section, String location,
                  String[] days, String time, int capacity) {
 
         super(
-            crn,
-            "Introduction to Computer Science I",
-            "CS113",
+            "CS241",
+            "Foundations of Computer Science I",
+            "CS241",
             professor,
             section,
             3,
@@ -26,14 +26,14 @@ class CS113 extends CompSci {
             location,
             days,
             time,
-            new String[]{"CS100"},            // requires CS100
+            new String[]{"CS114", "MATH112"},            // requires CS114 and MATH112.
             capacity,
-            "Java",
-            true,
+            "Discrete Mathematics",
+            false,                            // no lab for this one
             0.00
         );
 
-        this.topicsCovered = new String[]{"Data types", "Control structures (loops/conditionals)", "Arrays", "Inheritance", "Polymorphism", "Recursion", "Exception handling"};
+        this.topicsCovered = new String[]{"sets", "induction", "recurrence relations", "relations/functions", "counting", "probability"};
     }
 
     @Override

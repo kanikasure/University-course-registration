@@ -1,3 +1,4 @@
+package core;
 /**
  * RegistrationManager.java
  * Manager class that holds the Course[] array and implements all array operations.
@@ -91,16 +92,6 @@ public class RegistrationManager {
             Course temp = courses[i];
             courses[i] = courses[minIndex];
             courses[minIndex] = temp;
-        }
-        System.out.println("Courses sorted by credit hours.");
-    }
-
-    /**
-                    Course temp    = courses[j];
-                    courses[j]     = courses[j + 1];
-                    courses[j + 1] = temp;
-                }
-            }
         }
         System.out.println("Courses sorted by credit hours.");
     }

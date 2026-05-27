@@ -1,3 +1,5 @@
+package math;
+import core.Course;
 /**
  * Math.java
  * Abstract intermediate class for all Math courses.

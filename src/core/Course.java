@@ -1,3 +1,4 @@
+package core;
 /**
  * Course.java
  * Abstract root class for the Course Registration System.

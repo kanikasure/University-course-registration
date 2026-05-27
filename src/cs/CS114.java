@@ -1,3 +1,4 @@
+package cs;
 // =============================================================================
 // CS114.java — Concrete leaf class
 // =============================================================================
@@ -5,7 +6,7 @@
 /**
  * CS114.java — Introduction to Computer Science II. Prerequisite: CS113.
  */
-class CS114 extends CompSci {
+public class CS114 extends CompSci {
 
     private String[] topicsCovered;
 
