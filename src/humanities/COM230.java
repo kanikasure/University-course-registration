@@ -1,3 +1,4 @@
+package humanities;
 // =============================================================================
 // COM230.java — Concrete leaf class
 // =============================================================================
@@ -5,7 +6,7 @@
 /**
  * COM230.java — Introduction to Film. Adds a mediaType field.
  */
-class COM230 extends COM {
+public class COM230 extends COM {
 
     private String  mediaType;           // e.g. "Digital", "Film", "Social Media"
     private boolean writingIntensive;

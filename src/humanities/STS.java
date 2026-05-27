@@ -1,3 +1,4 @@
+package humanities;
 /**
  * STS.java
  * Abstract sub-intermediate for Science, Technology & Society courses.

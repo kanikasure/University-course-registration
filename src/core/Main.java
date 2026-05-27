@@ -1,3 +1,7 @@
+package core;
+import cs.*;
+import math.*;
+import humanities.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

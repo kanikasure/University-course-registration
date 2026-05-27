@@ -1,44 +1,44 @@
+package math;
 // =============================================================================
-// MATH111.java — Concrete leaf class
+// MATH112.java — Concrete leaf class
 // =============================================================================
 
 /**
- * MATH111.java — Calculus I. No prerequisites.
+ * MATH112.java — Calculus II. Prerequisite: MATH111.
  */
-public class MATH111 extends MathCourse {
+public class MATH112 extends MathCourse {
 
-    public MATH111(String crn, String professor, String section, String location,
+    public MATH112(String crn, String professor, String section, String location,
                    String[] days, String time, int capacity) {
 
         super(
             crn,
-            "Calculus I",
-            "MATH111",
+            "Calculus II",
+            "MATH112",
             professor,
             section,
-            4,                         // 4-credit course
+            4,
             420.00,
             true,
             false,
             location,
             days,
             time,
-            new String[]{},            // no prerequisites
+            new String[]{"MATH111"},
             capacity,
-            "Calculus",                // mathSubfield
+            "Calculus",
             false,                     // does not require calculator
-            1                         // tutoringSessions per week
+            1                          // tutoringSessions per week
         );
     }
 
     @Override
     public String courseDetails() {
-        // TEAM TODO: call super.courseDetails() and append any MATH111-specific info
+        // TEAM TODO: implement
         String details = super.courseDetails(); // call the base version to get the common block
-        details += " | Prerequisites: None";
+        details += " | Prerequisites: MATH111";
         return details; // placeholder — replace this
     }
 }
-
 
 

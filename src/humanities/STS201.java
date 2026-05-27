@@ -1,3 +1,4 @@
+package humanities;
 // =============================================================================
 // STS201.java — Concrete leaf class
 // =============================================================================
@@ -5,7 +6,7 @@
 /**
  * STS201.java — Understanding Technological Society.
  */
-class STS201 extends STS {
+public class STS201 extends STS {
 
     private String caseStudyRegion; // Geographic focus of the case studies
 

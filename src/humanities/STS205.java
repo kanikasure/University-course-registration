@@ -1,3 +1,4 @@
+package humanities;
 // =============================================================================
 // STS205.java — Concrete leaf class
 // =============================================================================
@@ -5,7 +6,7 @@
 /**
  * STS205.java — Intro to Research Methods.
  */
-class STS205 extends STS {
+public class STS205 extends STS {
 
     private String labName;
 

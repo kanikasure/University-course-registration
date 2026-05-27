@@ -1,3 +1,4 @@
+package humanities;
 // =============================================================================
 // COM201.java — Concrete leaf class
 // =============================================================================
@@ -5,7 +6,7 @@
 /**
  * COM201.java — Introduction to Communication and Media. GER-eligible with oral presentations.
  */
-class COM201 extends COM {
+public class COM201 extends COM {
 
     private boolean writingIntensive;
 

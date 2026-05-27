@@ -36,21 +36,53 @@ The `Course → HistHumGER → COM → COM200` path demonstrates the required 4-
 
 ## File Structure
 
+The project is organized into packages under `src/`:
+
+```
+src/
+ ├── core/
+ │    ├── Course.java               Abstract root class
+ │    ├── EnrollmentException.java  Custom checked exception
+ │    ├── RegistrationManager.java  Manages the Course[] array
+ │    └── Main.java                 Entry point / interactive menu
+ ├── cs/
+ │    ├── CompSci.java              Abstract intermediate for CS courses
+ │    ├── CS100.java
+ │    ├── CS113.java
+ │    ├── CS114.java
+ │    └── CS241.java
+ ├── math/
+ │    ├── MathCourse.java           Abstract intermediate for Math courses
+ │    ├── MATH105.java
+ │    ├── MATH111.java
+ │    ├── MATH112.java
+ │    └── MATH333.java
+ └── humanities/
+      ├── HistHumGER.java           Abstract intermediate for GER courses
+      ├── COM.java                  Abstract sub-intermediate for COM courses
+      ├── COM200.java
+      ├── COM201.java
+      ├── COM230.java
+      ├── STS.java                  Abstract sub-intermediate for STS courses
+      ├── STS201.java
+      └── STS205.java
+```
+
 | File | Role |
 |------|------|
-| `Course.java` | Abstract root class. Defines shared fields, `equals()`, `compareTo()`, and the recursive `hasPrerequisite()` method. |
-| `CompSci.java` | Abstract intermediate for CS courses. Adds `programmingLanguage`, `hasLabSection`, `labFee`. |
-| `CS100.java`, `CS113.java`, `CS114.java`, `CS241.java` | Concrete CS course leaves. |
-| `MathCourse.java` | Abstract intermediate for Math courses. Adds `mathSubfield`, `requiresCalculator`, `recitationSessions`. |
-| `MATH105.java`, `MATH111.java`, `MATH112.java`, `MATH333.java` | Concrete Math course leaves. `MATH333` adds an upper-division fee. |
-| `HistHumGER.java` | Abstract intermediate for GER-eligible courses. Applies a $50 GER discount. |
-| `COM.java` | Abstract sub-intermediate for Communication courses. |
-| `COM200.java`, `COM201.java`, `COM230.java` | Concrete COM leaves. |
-| `STS.java` | Abstract sub-intermediate for Science, Technology & Society courses. |
-| `STS201.java`, `STS205.java` | Concrete STS leaves. |
-| `EnrollmentException.java` | Custom checked exception for full sections, capacity issues, and invalid additions. |
-| `RegistrationManager.java` | Manager class holding the polymorphic `Course[]` array. Implements add, sort, recursive search, and print operations. |
-| `Main.java` | Entry point. Loads sample courses and runs an interactive text menu. |
+| `core/Course.java` | Abstract root class. Defines shared fields, `equals()`, `compareTo()`, and the recursive `hasPrerequisite()` method. |
+| `cs/CompSci.java` | Abstract intermediate for CS courses. Adds `programmingLanguage`, `hasLabSection`, `labFee`. |
+| `cs/CS100.java`, `cs/CS113.java`, `cs/CS114.java`, `cs/CS241.java` | Concrete CS course leaves. |
+| `math/MathCourse.java` | Abstract intermediate for Math courses. Adds `mathSubfield`, `requiresCalculator`, `recitationSessions`. |
+| `math/MATH105.java`, `math/MATH111.java`, `math/MATH112.java`, `math/MATH333.java` | Concrete Math course leaves. `MATH333` adds an upper-division fee. |
+| `humanities/HistHumGER.java` | Abstract intermediate for GER-eligible courses. Applies a $50 GER discount. |
+| `humanities/COM.java` | Abstract sub-intermediate for Communication courses. |
+| `humanities/COM200.java`, `humanities/COM201.java`, `humanities/COM230.java` | Concrete COM leaves. |
+| `humanities/STS.java` | Abstract sub-intermediate for Science, Technology & Society courses. |
+| `humanities/STS201.java`, `humanities/STS205.java` | Concrete STS leaves. |
+| `core/EnrollmentException.java` | Custom checked exception for full sections, capacity issues, and invalid additions. |
+| `core/RegistrationManager.java` | Manager class holding the polymorphic `Course[]` array. Implements add, sort, recursive search, and print operations. |
+| `core/Main.java` | Entry point. Loads sample courses and runs an interactive text menu. |
 
 ## Features
 
@@ -67,8 +99,11 @@ The `Course → HistHumGER → COM → COM200` path demonstrates the required 4-
 From the project's root directory:
 
 ```bash
-javac *.java
-java Main
+# Compile all source files into the out/ directory
+javac -d out src/core/Course.java src/core/EnrollmentException.java src/core/RegistrationManager.java src/humanities/HistHumGER.java src/humanities/STS.java src/humanities/COM.java src/cs/CompSci.java src/math/MathCourse.java src/cs/CS100.java src/cs/CS113.java src/cs/CS114.java src/cs/CS241.java src/math/MATH105.java src/math/MATH111.java src/math/MATH112.java src/math/MATH333.java src/humanities/COM200.java src/humanities/COM201.java src/humanities/COM230.java src/humanities/STS201.java src/humanities/STS205.java src/core/Main.java
+
+# Run the program
+java -cp out core.Main
 ```
 
 This will launch the interactive menu.

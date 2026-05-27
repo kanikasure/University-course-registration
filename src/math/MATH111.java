@@ -1,43 +1,45 @@
+package math;
 // =============================================================================
-// MATH105.java — Concrete leaf class
+// MATH111.java — Concrete leaf class
 // =============================================================================
 
 /**
- * MATH105.java — Elementary Probability and Statistics. Entry-level, no prerequisites.
+ * MATH111.java — Calculus I. No prerequisites.
  */
-class MATH105 extends MathCourse {
+public class MATH111 extends MathCourse {
 
-    public MATH105(String crn, String professor, String section, String location,
+    public MATH111(String crn, String professor, String section, String location,
                    String[] days, String time, int capacity) {
 
         super(
             crn,
-            "Elementary Probability and Statistics",
-            "MATH105",
+            "Calculus I",
+            "MATH111",
             professor,
             section,
-            3,
+            4,                         // 4-credit course
             420.00,
+            true,
             false,
-            true,                      // counts as elective
             location,
             days,
             time,
-            new String[]{},
+            new String[]{},            // no prerequisites
             capacity,
-            "Probability and Statistics",
-            true,                     // no graphing calculator required
-            2                          // extra tutoring sessions
+            "Calculus",                // mathSubfield
+            false,                     // does not require calculator
+            1                         // tutoringSessions per week
         );
     }
 
     @Override
     public String courseDetails() {
-        // TEAM TODO: implement
+        // TEAM TODO: call super.courseDetails() and append any MATH111-specific info
         String details = super.courseDetails(); // call the base version to get the common block
         details += " | Prerequisites: None";
         return details; // placeholder — replace this
     }
 }
+
 
 

@@ -1,3 +1,5 @@
+package cs;
+import core.Course;
 /**
  * CompSci.java
  * Abstract intermediate class for all Computer Science courses.
